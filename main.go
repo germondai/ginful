@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ginful/article"
 	"ginful/utils"
 	"net/http"
 
@@ -11,6 +12,9 @@ func main() {
 	router := gin.Default()
 
 	router.GET("/", index)
+
+	router.GET("/article", article.GetAll)
+	router.GET("/article/:id", article.Get)
 
 	err := router.Run()
 	utils.HandleErr(err)
