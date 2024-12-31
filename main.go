@@ -2,6 +2,7 @@ package main
 
 import (
 	"ginful/article"
+	"ginful/user"
 	"ginful/utils"
 	"net/http"
 
@@ -15,6 +16,9 @@ func main() {
 
 	router.GET("/article", article.GetAll)
 	router.GET("/article/:id", article.Get)
+
+	router.GET("/user", user.GetAll)
+	router.GET("/user/:id", user.Get)
 
 	err := router.Run()
 	utils.HandleErr(err)
